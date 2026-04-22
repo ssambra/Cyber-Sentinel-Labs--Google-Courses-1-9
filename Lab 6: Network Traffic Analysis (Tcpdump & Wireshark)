@@ -1,0 +1,9 @@
+The Issue: Unusual traffic spikes detected on the law office network.
+The Solution: Using Tcpdump to capture and inspect packet data.
+# Melissa Rachel Wozney - Network Lab
+# Objective: Capture 100 packets on the 'eth0' interface to inspect for ICMP flooding.
+Network-Traffic-Analysis.md
+sudo tcpdump -i eth0 -c 100 -v
+
+# Findings: Identified a high volume of 'ping' requests from a single external IP.
+# Action: Configured firewall rule to drop traffic from the suspicious source.
