@@ -1,0 +1,26 @@
+# Melissa Rachel Wozney - Technical Lab
+# Objective: Automate the update of an 'allow_list.txt' for restricted server access.
+
+import os
+
+def update_file(import_file, remove_list):
+    # Open the file and read the contents
+    with open(import_file, "r") as file:
+        file_text = file.read()
+    
+    # Convert string to list for processing
+    ip_addresses = file_text.split()
+
+    # Remove unauthorized IPs
+    for element in remove_list:
+        if element in ip_addresses:
+            ip_addresses.remove(element)
+
+    # Re-write the updated list back to the file
+    updated_text = " ".join(ip_addresses)
+    with open(import_file, "w") as file:
+        file.write(updated_text)
+
+# Execution: Removing a compromised IP address
+update_file("allow_list.txt", ["192.168.1.25"])
+print("Access list successfully updated.")
