@@ -1,0 +1,11 @@
+The Issue: A new remote-work policy was launched without a security review.
+
+The Solution: A risk assessment using the 7 steps of the NIST RMF.
+
+NIST-RMF-Assessment.md]
+
+1. Prepare: Established the organizational risk tolerance for remote access.
+2. Categorize: Labeled "Client Case Files" as High Impact for confidentiality.
+3. Select: Chose NIST SP 800-53 controls (e.g., AC-2 Account Management).
+4. Implement: Enabled mandatory VPN and Disk Encryption (FileVault/BitLocker).
+5. Assess: Verified that encryption was active on all remote laptops.
