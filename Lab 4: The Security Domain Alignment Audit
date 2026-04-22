@@ -1,0 +1,13 @@
+The Issue: A company is struggling with "Shadow IT" (employees using unapproved apps).
+
+The Solution: An audit mapping internal risks to the CIA Triad (Confidentiality, Integrity, Availability).
+
+CIA-Triad-Audit.md
+
+Scenario: Conducted a gap analysis for a mock firm.
+
+Confidentiality: Identified that payroll data was accessible to the general HR group. Remedy: Restricted access to "Need-to-Know" only.
+
+Integrity: Discovered that financial spreadsheets lacked version control. Remedy: Implemented "Digital Signatures" to track changes.
+
+Availability: Found the server room lacked a backup power source. Remedy: Proposed a UPS (Uninterruptible Power Supply) installation.
