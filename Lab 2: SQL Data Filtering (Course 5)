@@ -1,0 +1,11 @@
+/* Melissa Rachel Wozney - Technical Lab
+Objective: Query the 'logins' database to find suspicious activity.
+*/
+
+SELECT user_id, login_time, ip_address, success
+FROM user_logins
+WHERE success = FALSE 
+AND login_time > '18:00:00'
+ORDER BY login_time DESC;
+
+-- Logic: This identifies high-risk failed attempts outside of standard office hours.
