@@ -1,0 +1,10 @@
+The Issue: A data breach occurred, and the CEO needs a non-technical summary.
+
+The Solution: A "Contextualized" executive brief.
+
+Executive-Incident-Brief.md
+
+Executive Summary: On April 21, we successfully contained a "Credential Stuffing" attack.
+Impact: No customer data was exfiltrated. 12 accounts were temporarily locked.
+Legal/Regulatory: This event falls below the "Notifiable Breach" threshold for HIPAA/PDPA, but we have documented the response for our annual audit.
+Next Step: Implementing a "Phishing Simulation" for the accounting department to harden the human element.
