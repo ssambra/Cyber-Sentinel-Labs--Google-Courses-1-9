@@ -1,0 +1,13 @@
+# Melissa Rachel Wozney - Technical Lab
+# Objective: Restrict access to the 'Privileged_Client_Files' directory.
+
+# 1. Change ownership to the 'Legal_Admin' user
+sudo chown legal_admin Privileged_Client_Files
+
+# 2. Set permissions: Owner (Read/Write/Execute), Group (Read), Others (None)
+chmod 740 Privileged_Client_Files
+
+# 3. Verify the changes
+ls -ld Privileged_Client_Files
+
+# Result: Ensures that non-legal staff cannot access sensitive litigation data.
