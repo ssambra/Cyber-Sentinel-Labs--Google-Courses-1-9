@@ -1,0 +1,86 @@
+
+---
+
+### `Code/google-cybersecurity-labs/course3-sql/README.md`
+
+```markdown
+# Google Cybersecurity Lab — Course 3: SQL for Security
+
+**Analyst:** Melissa Wozney  
+**Lab Type:** SQL queries for security analytics
+
+---
+
+## 1. Executive summary
+
+This lab introduced SQL as a tool for querying security‑relevant datasets, such as login events and user activity. The focus was on filtering, aggregating, and joining data to support investigations.
+
+---
+
+## 2. Objectives
+
+- Use SELECT, WHERE, and ORDER BY to filter data.
+- Use GROUP BY and COUNT to aggregate events.
+- Identify suspicious patterns (e.g., multiple failed logins).
+
+---
+
+## 3. Tools and environment
+
+- SQL engine: lab‑provided (e.g., SQLite / Cloud SQL)
+- Sample tables:
+  - `logins(user, src_ip, status, timestamp)`
+  - `users(user, department, role)`
+
+---
+
+## 4. Example queries
+
+Failed logins by user:
+
+```sql
+SELECT user, COUNT(*) AS failed_attempts
+FROM logins
+WHERE status = 'FAILED'
+GROUP BY user
+ORDER BY failed_attempts DESC;
+Failed logins from a specific IP:
+SELECT timestamp, user, src_ip, status
+FROM logins
+WHERE src_ip = '192.168.1.45'
+ORDER BY timestamp;
+
+Join with user metadata:
+SELECT l.timestamp, l.user, u.department, l.status
+FROM logins l
+JOIN users u ON l.user = u.user
+WHERE l.status = 'FAILED';
+
+Findings / outcomes
+Identified users with unusually high failed login counts.
+
+Demonstrated how SQL can quickly surface suspicious activity.
+
+Showed how joining tables adds context (e.g., department, role).
+
+6. Screenshot descriptions
+Screenshot 1 — “Failed logins by user”  
+SQL console showing a result table with user and failed_attempts, sorted descending.
+
+Screenshot 2 — “Joined login and user data”  
+Query output listing timestamps, users, departments, and statuses.
+
+7. Lessons learned
+SQL is a powerful tool for security analytics, not just databases.
+
+Aggregations and joins help prioritize which events to investigate.
+
+Structured data enables faster, more accurate investigations.
+
+8. Folder contents
+README.md
+
+sql_failed_logins.png
+
+sql_joined_results.png
+

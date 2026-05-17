@@ -1,0 +1,49 @@
+
+---
+
+### `Code/linux/log-analysis/README.md`
+
+```markdown
+# Linux Lab — Log Analysis
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Objectives
+
+- Use Linux tools to analyze system and authentication logs.
+- Identify suspicious events in `/var/log`.
+
+---
+
+## 2. Commands/scripts used
+
+- `grep`, `awk`, `tail`, `less`
+
+Example:
+
+```bash
+# Find failed SSH logins
+sudo grep "Failed password" /var/log/auth.log
+
+# Count failures by IP
+sudo grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -nr
+3. Example code
+Optional script:
+#!/bin/bash
+sudo grep "Failed password" /var/log/auth.log > failed_logins.txt
+
+Screenshot descriptions
+Screenshot 1 — “Failed login analysis”  
+Terminal showing counts of failed logins by IP.
+
+5. Lessons learned
+Native Linux tools are powerful for quick log triage.
+
+Simple pipelines can reveal patterns quickly.
+
+6. Folder contents
+README.md
+
+failed_login_analysis.png

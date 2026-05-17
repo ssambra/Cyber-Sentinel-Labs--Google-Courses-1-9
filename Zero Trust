@@ -1,0 +1,68 @@
+
+---
+
+### `Code/cloud-security/zero-trust/README.md`
+
+```markdown
+# Zero Trust Lab — Access Segmentation
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Executive summary
+
+This lab applied Zero Trust principles to segment access based on identity, device, and context, reducing implicit trust in the environment.
+
+---
+
+## 2. Objectives
+
+- Understand Zero Trust concepts (never trust, always verify).
+- Design simple segmentation rules.
+- Map Zero Trust ideas to practical controls.
+
+---
+
+## 3. Key activities
+
+- Defined user groups and access policies.
+- Restricted access to sensitive resources based on role.
+- Considered device posture and MFA requirements.
+
+---
+
+## 4. Example policy concept
+
+- Only members of `SecurityTeam` group can access the SIEM.
+- Access requires:
+  - Corporate device
+  - MFA
+  - Connection from approved locations
+
+---
+
+## 5. Screenshot descriptions
+
+> **Screenshot 1 — “Access policy diagram”**  
+> Diagram showing users, groups, and segmented resources.
+
+> **Screenshot 2 — “Policy configuration screen”**  
+> Console view where conditions (group, device, MFA) are configured.
+
+---
+
+## 6. Lessons learned
+
+- Zero Trust is a strategy, not a single product.
+- Identity and context are key to access decisions.
+- Segmentation limits blast radius.
+
+---
+
+## 7. Folder contents
+
+- `README.md`  
+- `zero_trust_diagram.png`  
+- `zero_trust_policy.png`
+

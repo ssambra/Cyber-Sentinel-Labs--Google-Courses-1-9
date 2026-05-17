@@ -1,0 +1,51 @@
+
+---
+
+### `Code/linux/permissions-lab/README.md`
+
+```markdown
+# Linux Lab — Permissions and Ownership
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Objectives
+
+- Understand Linux file permissions and ownership.
+- Apply least privilege to sensitive files.
+
+---
+
+## 2. Commands/scripts used
+
+- `ls -l`, `chmod`, `chown`, `umask`
+
+Example:
+
+```bash
+# Restrict access to a sensitive file
+chmod 600 sensitive.txt
+chown root:root sensitive.txt
+
+3. Example code
+Optional helper script:
+#!/bin/bash
+ls -l "$1"
+chmod 600 "$1"
+ls -l "$1"
+Screenshot descriptions
+Screenshot 1 — “Before and after permissions”  
+ls -l output showing permission changes.
+
+5. Lessons learned
+Misconfigured permissions can expose critical data.
+
+Ownership and mode bits must be reviewed regularly.
+
+6. Folder contents
+README.md
+
+permissions_before_after.png
+
+

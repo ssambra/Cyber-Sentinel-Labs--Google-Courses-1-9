@@ -1,0 +1,214 @@
+Full Sample Report (Google Cybersecurity Lab Example)
+Title: Google Cybersecurity Lab — Course 5 (SIEM/Splunk)
+Analyst: Melissa Wozney — Identity Auditor & Threat Sentinel
+Date: April 2026
+Executive Summary
+This lab demonstrates SIEM workflows using Splunk to detect suspicious login activity. The exercise highlights log ingestion, query building, and dashboard creation for incident triage.
+
+Objectives
+Configure Splunk to ingest sample logs.
+
+Build queries to detect failed login attempts.
+
+Create dashboards for SOC monitoring.
+
+Document findings and remediation steps.
+
+Methodology
+Installed Splunk in lab environment.
+
+Loaded sample authentication logs.
+
+Built SPL queries to detect anomalies.
+
+Created dashboards for visualization.
+
+Documented findings in structured format.
+
+Findings
+Multiple failed login attempts from IP 192.168.1.45.
+
+Attempts occurred outside normal business hours.
+
+Account targeted: admin.
+
+Indicators suggest brute‑force attempt.
+
+Tools Used
+Splunk Enterprise
+
+SPL queries
+
+Linux terminal
+
+Indicators of Compromise
+Source IP: 192.168.1.45
+
+Target account: admin
+
+Time window: 02:00–03:00 UTC
+
+Screenshots
+(Placeholder: add Splunk dashboard screenshots here)
+
+Analyst Notes
+This lab demonstrates SOC workflows for brute‑force detection. Queries and dashboards can be adapted for enterprise environments.
+
+Appendix
+Sample SPL Query:
+
+Code
+index=auth_logs sourcetype=linux_secure "Failed password" 
+| stats count by src_ip, user
+
+# Google Cybersecurity Lab — Course 5: SIEM/Splunk
+
+**Analyst:** Melissa Wozney — Identity Auditor & Threat Sentinel  
+**Date:** April 2026  
+**Lab Type:** SIEM/SOC Workflow — Splunk
+
+---
+
+## 1. Executive summary
+
+This lab demonstrates how to use Splunk as a Security Information and Event Management (SIEM) platform to detect suspicious authentication activity, triage alerts, and document findings. I ingested Linux authentication logs, built SPL queries to identify brute‑force behavior, and created dashboards to support SOC monitoring and incident response.
+
+---
+
+## 2. Objectives
+
+- Configure Splunk to ingest sample authentication logs.
+- Build SPL queries to detect failed login attempts and anomalies.
+- Create dashboards for SOC analysts to monitor authentication events.
+- Document indicators of compromise (IOCs) and recommended response actions.
+
+---
+
+## 3. Environment and tools
+
+- **Platform:** Splunk Enterprise (lab instance)
+- **Data source:** Linux `/var/log/auth.log` sample dataset
+- **Host OS:** Linux (lab VM)
+- **Other tools:**  
+  - Bash shell for log inspection  
+  - Text editor for quick parsing  
+
+---
+
+## 4. Data ingestion
+
+### 4.1 Log sample
+
+Example of raw log lines used in the lab:
+
+```text
+Apr 21 02:13:45 lab-host sshd[1245]: Failed password for invalid user admin from 192.168.1.45 port 53422 ssh2
+Apr 21 02:13:48 lab-host sshd[1247]: Failed password for invalid user admin from 192.168.1.45 port 53423 ssh2
+Apr 21 02:14:02 lab-host sshd[1250]: Accepted password for melissa from 10.0.0.15 port 50210 ssh2
+ngestion steps (high level)
+Configured a new Splunk data input for Linux auth logs.
+
+Verified events were indexed under index=auth_logs.
+
+Confirmed correct sourcetype=linux_secure.
+
+5. SPL queries
+5.1 Failed login attempts by source IP
+spl
+index=auth_logs sourcetype=linux_secure "Failed password"
+| stats count AS failed_attempts by src_ip, user
+| sort - failed_attempts
+Purpose: Identify IPs generating high volumes of failed logins.
+
+5.2 Brute‑force behavior over time
+spl
+index=auth_logs sourcetype=linux_secure "Failed password"
+| bin _time span=5m
+| stats count AS failed_attempts by _time, src_ip
+| where failed_attempts > 10
+| sort _time
+Purpose: Detect bursts of failed logins that may indicate brute‑force attacks.
+
+5.3 Successful logins after failures
+spl
+index=auth_logs sourcetype=linux_secure ("Failed password" OR "Accepted password")
+| transaction src_ip user maxspan=30m
+| search eventcount > 1 "Failed password" "Accepted password"
+| table _time, src_ip, user, eventcount, duration
+Purpose: Identify cases where an attacker may have eventually guessed a valid password.
+
+6. Dashboards
+6.1 Dashboard: “Authentication Overview”
+Panels:
+
+Failed logins by source IP (bar chart)
+
+Query: failed attempts by src_ip
+
+Visualization: vertical bar chart
+
+Failed logins over time (line chart)
+
+Query: brute‑force behavior over 5‑minute bins
+
+Top targeted accounts (table)
+
+Query: stats count by user for failed logins
+
+6.2 Screenshot descriptions
+Screenshot 1 — “Failed Logins by Source IP”  
+A Splunk dashboard panel showing a bar chart. The x‑axis lists IP addresses (192.168.1.45, 10.0.0.20, etc.), and the y‑axis shows the number of failed attempts. The tallest bar is 192.168.1.45 with 37 failed attempts.
+
+Screenshot 2 — “Failed Logins Over Time”  
+A line chart showing spikes around 02:10–02:20 UTC, with a peak of 22 failed attempts in a 5‑minute window.
+
+Screenshot 3 — “Top Targeted Accounts”  
+A table listing admin, root, and testuser, with admin having the highest number of failed attempts.
+
+(In GitHub, I attach real PNG files with these names: failed_logins_by_ip.png, failed_logins_over_time.png, top_targeted_accounts.png.)
+
+7. Findings
+IP 192.168.1.45 generated 37 failed SSH login attempts within a short time window.
+
+The majority of attempts targeted the admin account, which does not exist as a valid user on the system.
+
+Activity occurred outside normal business hours (02:10–02:20 UTC).
+
+Behavior is consistent with automated brute‑force scanning.
+
+8. Indicators of compromise (IOCs)
+Source IP: 192.168.1.45
+
+Target account: admin
+
+Time window: 02:10–02:20 UTC
+
+Event type: SSH failed password attempts
+
+9. Recommended response actions
+Block or rate‑limit IP 192.168.1.45 at the firewall or edge device.
+
+Disable or rename default/admin‑like accounts where possible.
+
+Enforce strong password policies and MFA for remote access.
+
+Add detection rules for:
+
+High failed login counts per IP
+
+High failed login counts per user
+
+Successful login following multiple failures
+
+10. Lessons learned
+SIEM dashboards significantly reduce time‑to‑detect for brute‑force attempts.
+
+Normalizing log data and using consistent sourcetype values is critical for reliable queries.
+
+Visualizations help SOC analysts quickly prioritize which IPs and accounts to investigate.
+
+11. Appendix
+11.1 Sample Bash command used in the lab
+bash
+# Preview last 50 authentication log entries
+sudo tail -n 50 /var/log/auth.log

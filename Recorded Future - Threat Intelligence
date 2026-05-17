@@ -1,0 +1,71 @@
+
+---
+
+## Recorded Future TI
+
+### `Code/threat-intelligence/recorded-future/README.md`
+
+# Threat Intelligence Lab — Recorded Future
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Executive summary
+
+This lab used Recorded Future concepts and workflows to analyze domain abuse and Polaris trafficking‑related intelligence, transforming raw indicators into contextualized threat insights.
+
+---
+
+## 2. Objectives
+
+- Review domain abuse indicators and related risk scores.
+- Understand how Polaris trafficking intelligence can inform security controls.
+- Produce a concise TI summary for stakeholders.
+
+---
+
+## 3. Data sources and tools
+
+- Threat intelligence platform (Recorded Future concepts).
+- Domain risk scores, WHOIS data, passive DNS.
+- Polaris trafficking‑related indicators (conceptual).
+
+---
+
+## 4. Use cases
+
+- **Domain abuse:**  
+  Identify suspicious domains targeting users (phishing, fraud).
+
+- **Polaris trafficking intelligence:**  
+  Understand how certain infrastructure may be linked to trafficking‑related activity and how to block or monitor it.
+
+---
+
+## 5. Example indicators and analysis
+
+```text
+Suspicious domain: secure-billing-update[.]com
+Risk factors: Newly registered, similar to known brand, associated with phishing campaigns.
+Recommended action: Block at proxy/DNS, monitor for hits in logs.
+Screenshot descriptions
+Screenshot 1 — “Domain risk view”  
+TI console showing risk score, related indicators, and timeline.
+
+Screenshot 2 — “TI report summary”  
+Document summarizing findings and recommended controls.
+
+7. Lessons learned
+TI platforms enrich raw indicators with context and risk.
+
+Polaris‑related intelligence has both security and human‑rights implications.
+
+TI outputs must be translated into concrete controls and detections.
+
+8. Folder contents
+README.md
+
+domain_risk_view.png
+
+ti_report_summary.png

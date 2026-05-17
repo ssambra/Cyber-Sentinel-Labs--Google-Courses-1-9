@@ -1,0 +1,61 @@
+# Cloud Security Lab — AWS IAM & Logging
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Executive summary
+
+This lab focused on configuring AWS IAM roles and enabling logging to support security monitoring and investigations.
+
+---
+
+## 2. Objectives
+
+- Create and review IAM roles and policies.
+- Enable and verify logging (e.g., CloudTrail).
+- Understand how logs support IR and compliance.
+
+---
+
+## 3. Key activities
+
+- Created a least‑privilege IAM role for a specific service.
+- Attached managed and custom policies.
+- Verified that API activity was captured in logs.
+
+---
+
+## 4. Example policy snippet
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject"],
+      "Resource": ["arn:aws:s3:::example-bucket/*"]
+    }
+  ]
+}
+Screenshot descriptions
+Screenshot 1 — “IAM role configuration”  
+AWS console showing role name, trusted entities, and attached policies.
+
+Screenshot 2 — “CloudTrail events”  
+Logging console listing recent API calls.
+
+6. Lessons learned
+IAM is central to cloud security posture.
+
+Logging is required for effective detection and response.
+
+Overly broad policies increase risk.
+
+7. Folder contents
+README.md
+
+aws_iam_role.png
+
+aws_cloudtrail_events.png

@@ -1,0 +1,74 @@
+
+---
+
+### `Code/google-cybersecurity-labs/course8-cloud-security/README.md`
+
+```markdown
+# Google Cybersecurity Lab — Course 8: Cloud Security
+
+**Analyst:** Melissa Wozney  
+**Lab Type:** Cloud security fundamentals
+
+---
+
+## 1. Executive summary
+
+This lab covered core cloud security concepts, including shared responsibility, IAM, logging, and basic configuration hardening. The focus was on understanding how security controls map to cloud services.
+
+---
+
+## 2. Objectives
+
+- Understand shared responsibility in cloud environments.
+- Review IAM roles and permissions.
+- Enable and interpret cloud logging.
+
+---
+
+## 3. Topics and tools
+
+- IAM users, roles, and policies.
+- Logging (e.g., CloudTrail / equivalent).
+- Basic network controls (security groups / firewalls).
+
+---
+
+## 4. Key activities
+
+- Reviewed IAM policies for least privilege.
+- Verified that audit logging was enabled.
+- Identified risky configurations (overly broad permissions).
+
+---
+
+## 5. Findings / outcomes
+
+- Highlighted the importance of least privilege in cloud IAM.
+- Confirmed that logging is essential for investigations.
+- Identified misconfigurations that could lead to data exposure.
+
+---
+
+## 6. Screenshot descriptions
+
+> **Screenshot 1 — “IAM policy view”**  
+> Console view showing a role with attached policies and permissions.
+
+> **Screenshot 2 — “Cloud logging configuration”**  
+> Logging dashboard showing enabled audit logs.
+
+---
+
+## 7. Lessons learned
+
+- Cloud security is configuration‑driven.
+- IAM and logging are foundational controls.
+- Misconfigurations are a major source of cloud risk.
+
+---
+
+## 8. Folder contents
+
+- `README.md`  
+- `iam_policy_view.png`  
+- `cloud_logging_config.png`

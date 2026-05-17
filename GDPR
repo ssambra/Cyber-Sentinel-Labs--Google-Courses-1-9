@@ -1,0 +1,53 @@
+# EU Governance Lab — Mapping Controls to NIS2/GDPR
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Executive summary
+
+This lab explored how cloud security controls map to EU regulatory requirements, focusing on NIS2 and GDPR‑related expectations for logging, access control, and incident response.
+
+---
+
+## 2. Objectives
+
+- Identify relevant NIS2/GDPR themes (availability, integrity, confidentiality).
+- Map technical controls (IAM, logging, IR) to governance requirements.
+- Document a simple control mapping table.
+
+---
+
+## 3. Example control mapping
+
+| Control area      | Cloud control example              | Regulatory theme        |
+|-------------------|------------------------------------|-------------------------|
+| Access control    | IAM roles & least privilege        | Confidentiality         |
+| Logging & audit   | CloudTrail / audit logs            | Accountability, IR      |
+| Incident response | IR runbooks & playbooks            | Resilience, reporting   |
+
+---
+
+## 4. Screenshot descriptions
+
+> **Screenshot 1 — “Control mapping table”**  
+> Spreadsheet or document showing mappings between controls and NIS2/GDPR themes.
+
+> **Screenshot 2 — “Policy document snippet”**  
+> Excerpt from a cloud security policy referencing EU requirements.
+
+---
+
+## 5. Lessons learned
+
+- Governance links technical controls to legal and regulatory obligations.
+- Clear mappings support audits and compliance reviews.
+- Cloud security must be aligned with regional regulations.
+
+---
+
+## 6. Folder contents
+
+- `README.md`  
+- `eu_control_mapping.png`  
+- `eu_policy_snippet.png`

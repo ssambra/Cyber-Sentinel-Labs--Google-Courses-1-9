@@ -1,0 +1,83 @@
+
+---
+
+### `Code/google-cybersecurity-labs/course6-incident-response/README.md`
+
+```markdown
+# Google Cybersecurity Lab — Course 6: Incident Response
+
+**Analyst:** Melissa Wozney  
+**Lab Type:** Incident response lifecycle and documentation
+
+---
+
+## 1. Executive summary
+
+This lab walked through a simulated security incident, applying the incident response lifecycle: preparation, identification, containment, eradication, recovery, and lessons learned. The focus was on structured documentation and decision‑making.
+
+---
+
+## 2. Objectives
+
+- Practice identifying and triaging a potential incident.
+- Document actions taken at each IR phase.
+- Produce a concise incident report.
+
+---
+
+## 3. Scenario overview
+
+- Suspicious login activity from an external IP.
+- Multiple failed logins followed by a successful login.
+- Potential account compromise.
+
+---
+
+## 4. IR lifecycle application
+
+- **Identification:**  
+  Detected unusual login pattern via SIEM alerts.
+
+- **Containment:**  
+  Temporarily disabled the affected account and blocked the source IP.
+
+- **Eradication:**  
+  Verified no malware or persistence mechanisms were present.
+
+- **Recovery:**  
+  Re‑enabled account with a reset password and enforced MFA.
+
+- **Lessons learned:**  
+  Improved alert thresholds and added new detection rules.
+
+---
+
+## 5. Example timeline
+
+```text
+02:10 — SIEM alert triggered for multiple failed logins.
+02:15 — Analyst confirms pattern and escalates.
+02:20 — Account disabled; IP blocked.
+02:40 — Host reviewed; no malware found.
+03:00 — Account recovered with new credentials and MFA.
+
+Screenshot descriptions
+Screenshot 1 — “IR ticket”  
+Ticketing system view showing incident summary, status, and assigned analyst.
+
+Screenshot 2 — “SIEM alert details”  
+Alert panel with source IP, user, and event count.
+
+7. Lessons learned
+Clear documentation is as important as technical actions.
+
+Early containment reduces potential impact.
+
+IR playbooks help standardize responses.
+
+8. Folder contents
+README.md
+
+ir_timeline.png
+
+siem_alert_details.png

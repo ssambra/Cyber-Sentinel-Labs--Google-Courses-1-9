@@ -1,0 +1,76 @@
+
+---
+
+### `Code/google-cybersecurity-labs/course4-network-security/README.md`
+
+```markdown
+# Google Cybersecurity Lab — Course 4: Network Security
+
+**Analyst:** Melissa Wozney  
+**Lab Type:** Network fundamentals and basic monitoring
+
+---
+
+## 1. Executive summary
+
+This lab covered core network security concepts, including IP addressing, ports, protocols, and basic traffic inspection. The focus was on recognizing normal vs. suspicious network behavior.
+
+---
+
+## 2. Objectives
+
+- Understand TCP/IP, ports, and common protocols.
+- Use basic tools to inspect network connections.
+- Identify potentially suspicious connections.
+
+---
+
+## 3. Tools and commands
+
+- `netstat` or `ss`
+- `tcpdump` or equivalent packet capture tool
+- Optional: Wireshark (GUI)
+
+Example:
+
+```bash
+# List active connections
+netstat -tunap
+
+# Capture traffic on port 80
+sudo tcpdump -i eth0 port 80 -c 50
+
+Key activities
+Listed active connections and identified listening services.
+
+Captured a small packet sample for HTTP traffic.
+
+Reviewed which ports and protocols were in use.
+
+5. Findings / outcomes
+Learned to distinguish between local, internal, and external connections.
+
+Identified which services were exposed and on which ports.
+
+Understood how packet captures can support deeper investigations.
+
+6. Screenshot descriptions
+Screenshot 1 — “Active connections”  
+Terminal output of netstat -tunap showing local and remote IPs, ports, and processes.
+
+Screenshot 2 — “Packet capture”  
+Wireshark or tcpdump output showing HTTP GET requests.
+
+7. Lessons learned
+Network visibility is critical for detecting lateral movement and exfiltration.
+
+Even simple tools provide valuable insight into host activity.
+
+Knowing “normal” traffic patterns helps spot anomalies.
+
+8. Folder contents
+README.md
+
+netstat_connections.png
+
+tcpdump_capture.png

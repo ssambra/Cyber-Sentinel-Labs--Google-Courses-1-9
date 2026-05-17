@@ -1,0 +1,56 @@
+
+---
+
+## Linux work
+
+### `Code/linux/bash-scripts/README.md`
+
+```markdown
+# Linux Lab — Bash Scripts
+
+**Analyst:** Melissa Wozney  
+
+---
+
+## 1. Objectives
+
+- Automate common Linux security tasks using Bash.
+- Create simple scripts for log review and permission checks.
+
+---
+
+## 2. Commands/scripts used
+
+- `bash`, `chmod`, `grep`, `tail`, `find`
+
+Example script snippet:
+
+```bash
+#!/bin/bash
+# List world-writable files
+find / -type f -perm -0002 2>/dev/null > world_writable_files.txt
+Example code
+check_world_writable.sh
+
+tail_authlog.sh
+
+4. Screenshot descriptions
+Screenshot 1 — “Bash script in editor”  
+Text editor showing a Bash script with comments.
+
+Screenshot 2 — “Script execution”  
+Terminal output after running the script.
+
+5. Lessons learned
+Small scripts can greatly speed up repetitive checks.
+
+Bash is a powerful tool for quick security automation.
+
+6. Folder contents
+README.md
+
+check_world_writable.sh
+
+tail_authlog.sh
+
+bash_script_execution.png

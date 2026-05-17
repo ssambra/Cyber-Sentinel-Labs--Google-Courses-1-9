@@ -1,0 +1,79 @@
+
+---
+
+### `Code/google-cybersecurity-labs/course7-threat-intelligence/README.md`
+
+```markdown
+# Google Cybersecurity Lab — Course 7: Threat Intelligence
+
+**Analyst:** Melissa Wozney  
+**Lab Type:** Threat intelligence fundamentals
+
+---
+
+## 1. Executive summary
+
+This lab introduced threat intelligence concepts, including indicators of compromise (IOCs), TTPs, and basic enrichment. The focus was on turning raw data into actionable intelligence for defenders.
+
+---
+
+## 2. Objectives
+
+- Understand the difference between data, information, and intelligence.
+- Work with IOCs (IPs, domains, hashes).
+- Produce a short TI summary for a hypothetical campaign.
+
+---
+
+## 3. Data and tools
+
+- Sample IOCs (IPs, domains, hashes).
+- Open‑source intelligence (OSINT) sources (conceptual).
+- TI concepts: actor, campaign, TTPs, kill chain.
+
+---
+
+## 4. Example IOC set
+
+```text
+192.168.1.45
+update-secure-billing.com
+9F2B1C0E4A7C3B9E1D5F8A6C2D4E7B9A1C3D5E7F9A2B4C6D8E0F1A2B3C4D5E6
+
+Sample TI summary
+Threat type: Credential theft / billing fraud.
+
+Infrastructure: Malicious domain update-secure-billing[.]com.
+
+TTPs:
+
+Phishing or fake invoice lures.
+
+Malware with persistence and HTTP C2.
+
+Recommended actions:
+
+Block domain and related IPs.
+
+Monitor for associated hashes and user‑agent strings.
+
+6. Screenshot descriptions
+Screenshot 1 — “IOC list”  
+Text editor showing a list of IPs, domains, and hashes.
+
+Screenshot 2 — “TI summary document”  
+Document summarizing threat, infrastructure, and recommendations.
+
+7. Lessons learned
+TI must be actionable to be useful.
+
+Context (who, why, how) matters more than raw IOCs.
+
+TI supports SOC, IR, and GRC functions.
+
+8. Folder contents
+README.md
+
+ioc_list.png
+
+ti_summary.png

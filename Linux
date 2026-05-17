@@ -1,0 +1,75 @@
+# Google Cybersecurity Lab — Course 2: Linux
+
+**Analyst:** Melissa Wozney  
+**Lab Type:** Linux fundamentals for security
+
+---
+
+## 1. Executive summary
+
+This lab focused on using Linux as a security analyst: navigating the filesystem, managing permissions, inspecting logs, and running basic security‑relevant commands. The goal was to build comfort with the command line for SOC and IR workflows.
+
+---
+
+## 2. Objectives
+
+- Navigate Linux directories and files using the terminal.
+- Manage file permissions and ownership.
+- Inspect system and authentication logs.
+- Use basic tools (grep, tail, less) for log triage.
+
+---
+
+## 3. Tools and commands
+
+- Shell: `bash`
+- Key commands:
+  - `ls`, `cd`, `pwd`
+  - `chmod`, `chown`
+  - `tail`, `less`, `grep`
+  - `sudo`, `journalctl` (if available)
+
+Example:
+
+```bash
+# View last 50 authentication events
+sudo tail -n 50 /var/log/auth.log
+
+# Search for failed logins
+sudo grep "Failed password" /var/log/auth.log
+4. Key activities
+Explored /etc, /var/log, and home directories.
+
+Reviewed /var/log/auth.log for SSH login attempts.
+
+Modified file permissions to restrict access to sensitive files.
+
+Practiced using grep to filter security‑relevant events.
+
+5. Findings / outcomes
+Learned how authentication events are logged on Linux.
+
+Understood how misconfigured permissions can expose sensitive data.
+
+Gained confidence using the terminal for day‑to‑day security tasks.
+
+6. Screenshot descriptions
+Screenshot 1 — “Viewing auth.log”  
+Terminal window showing sudo tail -n 50 /var/log/auth.log with recent SSH login attempts.
+
+Screenshot 2 — “Permissions change”  
+Terminal output of ls -l before and after running chmod 600 sensitive.txt.
+
+7. Lessons learned
+Linux logs are a primary data source for SOC investigations.
+
+Proper permissions are a foundational security control.
+
+Command‑line fluency is essential for efficient triage.
+
+8. Folder contents
+README.md
+
+linux_authlog_example.png
+
+permissions_change.png
