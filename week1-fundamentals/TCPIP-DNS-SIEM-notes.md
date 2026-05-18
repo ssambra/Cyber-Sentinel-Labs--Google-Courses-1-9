@@ -40,3 +40,24 @@ Sample query I wrote:
 index=iam_logs EventCode=4625 | table _time, user, src_ip, failure_reason | sort -_time
 Takeaway: SIEM is just a magnifying glass for IAM behavior. Start with one event code, master it.
 
+
+# This Week's Lab Notes
+*Learning in Public – May 2026*
+
+## TCP/IP and DNS Basics
+- Reviewed OSI layers 3-4
+- TCP handshake: SYN, SYN-ACK, ACK
+- Ran: ping 8.8.8.8, traceroute google.com
+- DNS flow: client > resolver > root > TLD > authoritative
+- Ran: nslookup github.com, dig +short github.com
+
+## SIEM Log Parsing
+- Focus: Windows Event IDs 4624, 4625, 4769
+- Practice query: index=iam_logs EventCode=4625 | table _time, user, src_ip
+- Goal: spot failed logins and off-hours access
+
+## IAM Connection
+Every auth event rides TCP/IP and DNS. Understanding the network layer helps me spot abnormal IAM behavior faster.
+
+---
+Next: Build simple Python parser for 4625 events
